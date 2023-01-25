@@ -90,7 +90,7 @@
              audio.play()
              setTimeout(() => {
                  stopConfetti()
-             }, 5000);
+             }, 3000);
          }
      }
 
