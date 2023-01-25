@@ -7,10 +7,13 @@
          canvasHeight = canvas.height,
          ctx = canvas.getContext('2d'),
          image = new Image(),
-         brush = new Image();
+         brush = new Image(),
+         audio = new Audio('sound/tadaa.mp3');
 
      // Use base64 Workaround because Same-Origin-Policy
      image.src = 'images/scratch.jpg'
+
+
      image.onload = function() {
          ctx.drawImage(image, 0, 0, 300, 300);
          // Show the form when Image is loaded.
@@ -81,12 +84,13 @@
          filledInPixels = filledInPixels || 0;
 
          document.querySelector('#percentage').innerHTML = `${filledInPixels}%`
-         if (filledInPixels > 70) {
+         if (filledInPixels > 50) {
              canvas.parentNode.removeChild(canvas);
              startConfetti()
+             audio.play()
              setTimeout(() => {
                  stopConfetti()
-             }, 3000);
+             }, 5000);
          }
      }
 
