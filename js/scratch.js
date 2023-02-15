@@ -3,6 +3,8 @@
      var isDrawing, lastPoint;
      var container = document.getElementById('scratchContainer'),
          canvas = document.getElementById('scratchCanvas'),
+         brushImage = document.getElementById('brushImage'),
+         scratchImage = document.getElementById('scratchImage'),
          canvasWidth = canvas.width,
          canvasHeight = canvas.height,
          ctx = canvas.getContext('2d'),
@@ -10,8 +12,9 @@
          brush = new Image(),
          audio = new Audio('sound/tadaa.mp3');
 
+
      // Use base64 Workaround because Same-Origin-Policy
-     image.src = 'images/scratch.jpg'
+     image.src = scratchImage.src
 
 
      image.onload = function() {
@@ -19,7 +22,7 @@
          // Show the form when Image is loaded.
          document.querySelector('#coupon').style.display = 'flex';
      };
-     brush.src = 'images/cursor.svg';
+     brush.src = brushImage.src
 
      canvas.addEventListener('mousedown', handleMouseDown, false);
      canvas.addEventListener('touchstart', handleMouseDown, false);
